@@ -20,7 +20,7 @@ require("dotenv").config();
 // Importante para tomar datos del body!
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
-/*
+
 // Conexión DB
 const sequelize = require("../db/sequelize.js");
 // const autoSequelize = require("./entity/auto.entity.js");
@@ -37,7 +37,6 @@ const garageRoutes = require("../routes/garage.routes.js");
 app.use("/garages", garageRoutes);
 
 // Fin rutas
-*/
 app.get("/", async (req, res) => {
   // sequelize.sync({ force: true });
   res.send("Ruta por defecto");
