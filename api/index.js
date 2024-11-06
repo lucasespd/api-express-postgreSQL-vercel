@@ -22,18 +22,18 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
 // Conexión DB
-const sequelize = require("./db/sequelize.js");
+const sequelize = require("../db/sequelize.js");
 // const autoSequelize = require("./entity/auto.entity.js");
 
-const relacionarEntidades = require("./entity/relaciones.js");
+const relacionarEntidades = require("../entity/relaciones.js");
 relacionarEntidades();
 
 // Inicio rutas
 
-const autosRoutes = require("./routes/auto.routes.js");
+const autosRoutes = require("../routes/auto.routes.js");
 app.use("/autos", autosRoutes);
 
-const garageRoutes = require("./routes/garage.routes.js");
+const garageRoutes = require("../routes/garage.routes.js");
 app.use("/garages", garageRoutes);
 
 // Fin rutas
