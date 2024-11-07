@@ -18,24 +18,7 @@ if (process.env.DB_TYPE === "mysql") {
     }
   );
 } else if (process.env.DB_TYPE === "postgres") {
-  sequelize = new Sequelize(
-    process.env.POSTGRES_DATABASE,
-    process.env.POSTGRES_USER,
-    process.env.POSTGRES_PASSWORD,
-    {
-      host: process.env.POSTGRES_HOST,
-      dialect: process.env.DB_TYPE,
-      dialectOptions: {
-        useUTC: false,
-        ssl: {
-          require: true,
-          rejectUnauthorized: false,
-        },
-      },
-      timezone: "America/Argentina/Buenos_Aires",
-      dialectModule: pg,
-    }
-  );
+  sequelize = new Sequelize(process.env.POSTGRES_URI);
 }
 
 module.exports = sequelize;
