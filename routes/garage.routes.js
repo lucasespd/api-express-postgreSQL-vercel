@@ -32,7 +32,7 @@ router.post("/garageYAuto", async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
-  const respuesta = await GarageSequelize.find();
+  const respuesta = await GarageSequelize.findAll();
   res.send(respuesta);
 });
 
