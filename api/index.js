@@ -38,13 +38,13 @@ app.use("/garages", garageRoutes);
 
 // Fin rutas
 app.get("/", async (req, res) => {
-  sequelize
+  /*sequelize
     .sync({ force: true })
     .then(() => {
       console.log("yes re-sync done!");
     })
     .catch((e) => console.log("Can't syncronize", e));
-
+*/
   res.send("Ruta por defecto");
 });
 

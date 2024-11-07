@@ -3,6 +3,7 @@ const router = express.Router();
 const Garage = require("../entity/garage.entity.js");
 const Auto = require("../entity/auto.entity.js");
 const sequelize = require("../db/sequelize.js");
+const GarageSequelize = require("../entity/garage.entity.js");
 
 router.post("/", async (req, res) => {
   const nombre = req.body.nombre;
@@ -28,6 +29,11 @@ router.post("/garageYAuto", async (req, res) => {
   });
 
   res.send(resultadoAuto);
+});
+
+router.get("/", async (req, res) => {
+  const respuesta = await GarageSequelize.find();
+  res.send(respuesta);
 });
 
 router.get("/traerPorNombre", async (req, res) => {

@@ -6,20 +6,6 @@
 
 `npm install --save pg pg-hstore`
 
-CREATE TABLE autos (
-id SERIAL PRIMARY KEY NOT NULL,
-nombre varchar(255) NOT NULL,
-patente varchar(255) NOT NULL,
-precio float NOT NULL,
-eliminado BOOL NOT NULL DEFAULT false,
-creado_en DATE NOT NULL,
-updatedAt DATE NOT NULL
-)
+CREATE TABLE IF NOT EXISTS "Garages" ("id" SERIAL , "nombre" VARCHAR(255) NOT NULL, "eliminado" BOOLEAN NOT NULL DEFAULT false, "creado_en" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("id"));
 
-CREATE TABLE garages (
-id SERIAL PRIMARY KEY NOT NULL,
-nombre varchar(255) NOT NULL,
-eliminado BOOL NOT NULL DEFAULT false,
-creado_en DATE NOT NULL,
-updatedAt DATE NOT NULL
-)
+CREATE TABLE IF NOT EXISTS "Autos" ("id" SERIAL , "nombre" VARCHAR(255) NOT NULL, "patente" VARCHAR(255) NOT NULL, "precio" FLOAT NOT NULL, "eliminado" BOOLEAN NOT NULL DEFAULT false, "creado_en" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "GarageId" INTEGER REFERENCES "Garages" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));
