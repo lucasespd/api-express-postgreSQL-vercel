@@ -5,3 +5,21 @@
 5. _Importante_ instalar el paquete de postgreSQL.
 
 `npm install --save pg pg-hstore`
+
+CREATE TABLE autos (
+id SERIAL PRIMARY KEY NOT NULL,
+nombre varchar(255) NOT NULL,
+patente varchar(255) NOT NULL,
+precio float NOT NULL,
+eliminado BOOL NOT NULL DEFAULT false,
+creado_en DATE NOT NULL,
+updatedAt DATE NOT NULL
+)
+
+CREATE TABLE garages (
+id SERIAL PRIMARY KEY NOT NULL,
+nombre varchar(255) NOT NULL,
+eliminado BOOL NOT NULL DEFAULT false,
+creado_en DATE NOT NULL,
+updatedAt DATE NOT NULL
+)
