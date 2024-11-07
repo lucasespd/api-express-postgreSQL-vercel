@@ -1,5 +1,5 @@
 const { Sequelize } = require("sequelize");
-
+const pg = require("pg");
 let sequelize;
 
 if (process.env.DB_TYPE === "mysql") {
@@ -29,6 +29,7 @@ if (process.env.DB_TYPE === "mysql") {
         useUTC: false,
       },
       timezone: "America/Argentina/Buenos_Aires",
+      dialectModule: pg,
     }
   );
 }
