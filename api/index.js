@@ -38,7 +38,7 @@ app.use("/garages", garageRoutes);
 
 // Fin rutas
 app.get("/", async (req, res) => {
-  // sequelize.sync({ force: true });
+  sequelize.sync({ force: true });
   res.send("Ruta por defecto");
 });
 
