@@ -13,6 +13,10 @@ if (process.env.DB_TYPE === "mysql") {
       port: process.env.MYSQL_PORT,
       dialectOptions: {
         useUTC: false,
+        ssl: {
+          require: true,
+          rejectUnauthorized: false,
+        },
       },
       timezone: "America/Argentina/Buenos_Aires",
     }
